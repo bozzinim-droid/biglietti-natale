@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#c41e3a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Biglietti Natale">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="images/icon.png">
+  <title>Biglietti di Natale</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>🎄 Biglietti di Natale</h1>
+      <p>Crea un video auguri da condividere</p>
+    </header>
+
+    <section id="step1" class="step active">
+      <h2>1. Scegli lo sfondo</h2>
+      <div class="bg-grid">
+        <div class="bg-option selected" data-bg="images/bg1.jpg">
+          <img src="images/bg1.jpg" alt="Albero innevato">
+          <span>Albero innevato</span>
+        </div>
+        <div class="bg-option" data-bg="images/bg2.jpg">
+          <img src="images/bg2.jpg" alt="Camino">
+          <span>Camino caldo</span>
+        </div>
+        <div class="bg-option" data-bg="images/bg3.jpg">
+          <img src="images/bg3.jpg" alt="Villaggio">
+          <span>Villaggio magico</span>
+        </div>
+      </div>
+      <button id="next1" class="btn primary">Avanti</button>
+    </section>
+
+    <section id="step2" class="step">
+      <h2>2. Scrivi il messaggio</h2>
+      <textarea id="message" placeholder="Es: Buon Natale e felice anno nuovo! Con affetto, [Nome]" rows="4"></textarea>
+      <div class="options">
+        <label>Colore testo:
+          <input type="color" id="textColor" value="#ffffff">
+        </label>
+        <label>Dimensione:
+          <input type="range" id="textSize" min="28" max="72" value="48">
+        </label>
+      </div>
+      <div class="btn-row">
+        <button id="back2" class="btn">Indietro</button>
+        <button id="next2" class="btn primary">Anteprima</button>
+      </div>
+    </section>
+
+    <section id="step3" class="step">
+      <h2>3. Anteprima e scarica</h2>
+      <div class="preview-container">
+        <canvas id="previewCanvas" width="720" height="1280"></canvas>
+        <video id="previewVideo" playsinline controls style="display:none; width:100%; border-radius:12px;"></video>
+      </div>
+      <div class="btn-row">
+        <button id="back3" class="btn">Indietro</button>
+        <button id="generateBtn" class="btn primary">Genera video</button>
+        <button id="downloadBtn" class="btn" disabled>Scarica</button>
+        <button id="shareBtn" class="btn" disabled>Condividi</button>
+      </div>
+      <p id="status" class="status"></p>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
